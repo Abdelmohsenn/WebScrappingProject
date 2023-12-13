@@ -1,9 +1,4 @@
-# from selenium import webdriver
-# from selenium.webdriver.chrome.options import Options
-# from selenium.webdriver.chrome.service import Service
-# from selenium.webdriver.support.select import Select
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.common.keys import Keys
+
 import requests
 from bs4 import BeautifulSoup
 import csv
@@ -46,19 +41,6 @@ with open('interests.csv', mode='w', newline='') as file:
     writer = csv.writer(file)
     for user in interest:
         writer.writerow(user)
-# s = Service("/Users/muhammadabdelmohsen/Downloads/chromedriver_mac64/chromedriver")
-# chromeOptions = Options()
-# chromeOptions.headless=False
-# driver = webdriver.Chrome(service=s, options=chromeOptions)
-#
-# driver.get("https://www.olx.com.eg/en/ad/رينو-داستر-٢%D9%A0٢%D9%A0-الفئة-الثانية-بالتقسيط-بمقدم-١١%D9%A0-%D9%A0%D9%A0%D9%A0-ID195116250.html")
-# print("tmam")
-# time.sleep(2)
-# LoginButton = driver.find_element(By.CLASS_NAME, value="_1b04dcc1")
-# LoginButton.click()
-# time.sleep(2)
-# cookies = driver.get_cookies()
-# print(cookies)
 
 finalLinks = []
 
@@ -195,7 +177,7 @@ for car in finalLinks:
 
     #
     #
-    #Describtion
+    #Description
         function = [{"ad_id": AdID, "description": Description.get_text(' ', strip=True)}]
         table = pandas.DataFrame(function)
         table.to_csv("desclast.csv", sep=',', encoding='UTF-8-sig', mode='a', index=False, header=False)
@@ -226,16 +208,7 @@ for car in finalLinks:
         print(AdID)
     except:
         continue
-# # # #
-#
-print("finished parsing the links")
 
-#
-#
-# with open('Cdetails.csv', 'a') as file:
-#     writer = csv.writer(file)
-#     writer.writerow(
-#         ["Brand", "Model", "AdType", "FuelType", "price", "PaymentOptions", "year",
-#          "kilometers", "Transmission", "Condition", "color", "Body", "EngineCapacity", "Video", "VirtualTour"])
+print("finished parsing the links")
 #
 # import stealth
